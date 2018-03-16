@@ -19,7 +19,7 @@
 
             let cards = `
                 <h2>${first} ${last}</h2>
-                <p class="dez">${clickDes}</p>
+                <p>${clickDes}</p>
             `
 
             $('#card').css('border', '2px solid red').append(cards)
@@ -48,6 +48,10 @@
           display: block;
         }
 
+        form, h1 {
+          margin-left: 350px;
+        }
+
         #submit {
           padding: 15px;
           background-color: grey;
@@ -63,8 +67,8 @@
           margin-left: 500px;
           position: relative;
           bottom: 290px;
+          left: 400px;
         }
-
 
 
     </style>
