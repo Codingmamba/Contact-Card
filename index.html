@@ -3,21 +3,97 @@
   <head>
     <meta charset="utf-8">
     <title>Contact Card</title>
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Limelight" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 
     <script>
         $(document).ready(function() {
+
+          $('form').submit(function() {
+            let first = $('#first').val();
+					  let last = $('#last').val();
+			      let description = $('#description').val();
+            let clickDes = 'Click here to view description!'
+            console.log(clickDes);
+
+            let cards = `
+                <h2>${first} ${last}</h2>
+                <p class="dez">${clickDes}</p>
+            `
+
+            $('#card').css('border', '2px solid red').append(cards)
+
+            $('p').on('click', function() {
+              $(this).html(description)
+            })
+
+
+            $('#first, #last, #description').val('')
+            return false;
+
+          });
+
 
         });
     </script>
 
     <style>
 
+        h1 {
+          font-family: 'Limelight', cursive;
+        }
+
+        textarea {
+          display: block;
+        }
+
+        #submit {
+          padding: 15px;
+          background-color: grey;
+          color: white;
+          border: grey;
+          border-radius: 5px;
+        }
+
+        #card {
+          font-family: 'Permanent Marker', cursive;
+          width: 400px;
+          text-align: center;
+          margin-left: 500px;
+          position: relative;
+          bottom: 290px;
+        }
+
+
+
     </style>
   </head>
   <body>
 
-    <p>Python</p>
+    <h1>Contact Card</h1>
+
+<div>
+  <form class="" action="index.html" method="post">
+      <label for="first_name">First Name</label>
+      <input type="text" name="first_name" placeholder="First Name" id="first">
+      <br>
+      <br>
+
+      <label for="last_name">Last Name</label>
+      <input type="text" name="last_name" placeholder="Last Name" id="last">
+      <br>
+      <br>
+
+      <label for="description">Description:</label>
+      <textarea name="description" rows="8" cols="40" placeholder="Enter a Description" id="description"></textarea>
+      <br>
+
+      <input type="submit" name="submit" value="Add User" id="submit">
+  </form>
+</div>
+
+<div id="card"></div>
 
   </body>
 </html>
